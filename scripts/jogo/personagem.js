@@ -1,19 +1,20 @@
 class Personagem extends Animacao {
-  constructor(matriz, imagem, x, largura, altura, larguraSprite, alturaSprite) {
-    super(matriz, imagem, x, largura, altura, larguraSprite, alturaSprite);
-    
-    this.yChao = height - this.altura;
+  constructor(matriz, imagem, x, variacaoY, largura, altura, larguraSprite, alturaSprite){
+    super(matriz, imagem, x, variacaoY, largura, altura, larguraSprite, alturaSprite);
+    this.yChao = height - this.altura - this.variacaoY;
     this.y = this.yChao;
     
     this.velocidadeDoPulo = 0;
-    this.gravidade = 3;
+    this.gravidade = 5;
+    this.alturaDoPulo = -45;
+    this.pulos = 0;
   }
   
   pula() {
-    this.velocidadeDoPulo = - 30;
-    /*if(this.y < 0) {
-      this.y = 0;
-    }*/
+    if(this.pulos < 3) {
+      this.velocidadeDoPulo = this.alturaDoPulo;
+      this.pulos++;
+    }
   }
   
   cai() {
@@ -22,22 +23,23 @@ class Personagem extends Animacao {
     
     if(this.y > this.yChao) {
       this.y = this.yChao;
+      this.pulos = 0;
     }
   }
   
   colide(inimigo) {
-    const margem = .68;
+    const bordaX = .65;
+    const bordaY = .64;
     const colisao = collideRectRect(
       this.x, 
       this.y, 
-      this.largura * margem, 
-      this.altura * margem,
+      this.largura * bordaX, 
+      this.altura * bordaY,
       inimigo.x,
       inimigo.y,
-      inimigo.largura * margem,
-      inimigo.altura * margem
+      inimigo.largura * bordaX,
+      inimigo.altura * bordaY
     );
-    
     return colisao;
   }
 }
