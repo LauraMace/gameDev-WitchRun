@@ -115,6 +115,8 @@ const matrixWinged = [
 
 const enemies = []
 
+let currentEnemy = 0;
+
 function preload() {
   imgScenario = loadImage('pictures/scenario/forest.png');
   imgGameOver = loadImage('pictures/assets/gameOver.png');
@@ -133,13 +135,14 @@ function setup() {
   
   witch = new Witch(matrixWitch, imgWitch, 0, 24, 110, 135, 220, 270);
   
-  poring = new Enemy(matrixPoring, imgPoring, width - 52, 22, 52, 52, 104, 104, 9, 60);
-  winged = new Enemy(matrixWinged, imgWinged, width - 52, 180, 100, 75, 200, 150, 12, 1320);
-  troll = new Enemy(matrixTroll, imgTroll, width - 26, 20, 180, 200, 400, 400, 7, 2400);
+  poring = new Enemy(matrixPoring, imgPoring, width - 52, 22, 52, 52, 104, 104, 10, 30);
+  winged = new Enemy(matrixWinged, imgWinged, width - 52, 180, 100, 75, 200, 150, 18, 30);
+  troll = new Enemy(matrixTroll, imgTroll, width - 26, 20, 180, 200, 400, 400, 9, 30);
   
   enemies.push(poring);
-  enemies.push(troll);
   enemies.push(winged);
+  enemies.push(troll);
+
   
   frameRate(36);
   //soundtrack.loop();
@@ -160,15 +163,24 @@ function draw() {
 
   witch.show();
   witch.drop();
+  
+  const enemy = enemies[currentEnemy];
+  const currentVisible = enemy.x < -enemy.largura;
 
-  enemies.forEach(enemy => {
-    enemy.show()
-    enemy.move()
-    
-    if (witch.collision(enemy)) {
-      image(imgGameOver, width/2 - 200, height/3 +24)      
-      noLoop()
+  enemy.show()
+  enemy.move()
+  
+  if(currentVisible){
+     currentEnemy++;
+    if(currentEnemy > 2){
+      currentEnemy = 0;
     }
     
-  })
+    enemy.speedX = parseInt(random(9,27));
+  }
+    
+  if (witch.collision(enemy)) {
+    image(imgGameOver, width/2 - 200, height/3 +24);  
+    noLoop();
+  }
 }
