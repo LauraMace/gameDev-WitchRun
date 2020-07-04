@@ -1,22 +1,22 @@
-let imagemCenario;
-let imagemGameOver;
-let imagemPersonagem;
+let imgScenario;
+let imgGameOver;
+let imgWitch;
 
-let imagemInimigo;
-let imagemInimigoGrande;
-let imagemInimigoVoador;
+let imgPoring;
+let imgWinged;
+let imgTroll;
 
-let cenario;
-let personagem;
-let inimigo;
-let inimigoGrande;
-let inimigoVoador;
+let scenario;
+let witch;
+let poring;
+let winged;
+let troll;
 
-let somDoJogo;
-let somDoPulo;
-let pontuacao;
+let score;
+let soundtrack;
+let jumpSound;
 
-const matrizPersonagem = [
+const matrixWitch = [
   [0, 0],
   [220, 0],
   [440, 0],
@@ -34,7 +34,7 @@ const matrizPersonagem = [
   [440, 810],
   [660, 810],
 ]
-const matrizInimigo = [
+const matrixPoring = [
   [0, 0],
   [104, 0],
   [208, 0],
@@ -64,7 +64,7 @@ const matrizInimigo = [
   [208, 626],
   [312, 626],
 ]
-const matrizInimigoGrande = [
+const matrixTroll = [
   [0,0],
   [400,0],
   [800,0],
@@ -94,7 +94,7 @@ const matrizInimigoGrande = [
   [400, 2000],
   [800, 2000],
 ]
-const matrizInimigoVoador = [
+const matrixWinged = [
   [0,0],
   [200, 0],
   [400, 0],
@@ -113,61 +113,60 @@ const matrizInimigoVoador = [
   [0, 750],
 ]
 
-const inimigos = []
+const enemies = []
 
 function preload() {
-  imagemCenario = loadImage('imagens/cenario/floresta.png');
-  imagemGameOver = loadImage('imagens/assets/game-over.png');
-  imagemPersonagem = loadImage('imagens/personagem/correndo.png');
-  imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
-  imagemInimigoGrande = loadImage('imagens/inimigos/troll.png');
-  imagemInimigoVoador = loadImage('imagens/inimigos/gotinha-voadora.png');
-  somDoJogo = loadSound('sons/trilha_jogo.mp3');
-  somDoPulo = loadSound('sons/somPulo.mp3');
+  imgScenario = loadImage('pictures/scenario/forest.png');
+  imgGameOver = loadImage('pictures/assets/gameOver.png');
+  imgWitch = loadImage('pictures/character/witch.png');
+  imgPoring = loadImage('pictures/enemies/poring.png');
+  imgTroll = loadImage('pictures/enemies/troll.png');
+  imgWinged = loadImage('pictures/enemies/winged.png');
+  soundtrack = loadSound('sounds/soundtrack.mp3');
+  jumpSound = loadSound('sounds/jump.mp3');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  cenario = new Cenario(imagemCenario, 3);
-  pontuacao = new Pontuacao();
+  scenario = new Scenario(imgScenario, 3);
+  score = new Score();
   
-  personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 24, 110, 135, 220, 270);
+  witch = new Witch(matrixWitch, imgWitch, 0, 24, 110, 135, 220, 270);
   
-  inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 22, 52, 52, 104, 104, 9, 60);
-  inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 180, 100, 75, 200, 150, 12, 1320);
-  inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 180, 200, 400, 400, 7, 2400);
+  poring = new Enemy(matrixPoring, imgPoring, width - 52, 22, 52, 52, 104, 104, 9, 60);
+  winged = new Enemy(matrixWinged, imgWinged, width - 52, 180, 100, 75, 200, 150, 12, 1320);
+  troll = new Enemy(matrixTroll, imgTroll, width - 26, 20, 180, 200, 400, 400, 7, 2400);
   
-  inimigos.push(inimigo);
-  inimigos.push(inimigoGrande);
-  inimigos.push(inimigoVoador);
+  enemies.push(poring);
+  enemies.push(troll);
+  enemies.push(winged);
   
   frameRate(36);
-  //somDoJogo.loop();
+  //soundtrack.loop();
 }
 
 function keyPressed() {
   if(key === 'ArrowUp') {
-    personagem.pula();
-    somDoPulo.play();
+    witch.jump();
   }
 }
 
 function draw() {
-  cenario.exibe();
-  cenario.move();
+  scenario.show();
+  scenario.move();
   
-  pontuacao.exibe();
-  pontuacao.pontua();
+  score.show();
+  score.score();
 
-  personagem.exibe();
-  personagem.cai();
+  witch.show();
+  witch.drop();
 
-  inimigos.forEach(inimigo => {
-    inimigo.exibe()
-    inimigo.move()
+  enemies.forEach(enemy => {
+    enemy.show()
+    enemy.move()
     
-    if (personagem.colide(inimigo)) {
-      image(imagemGameOver, width/2 - 200, height/3 +24)      
+    if (witch.collision(enemy)) {
+      image(imgGameOver, width/2 - 200, height/3 +24)      
       noLoop()
     }
     
