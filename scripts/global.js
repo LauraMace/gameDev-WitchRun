@@ -13,8 +13,7 @@ let manager;
 let gameplay;
 let startScreen;
 let status;
-//let currentStatus = 'startScreen';
-let currentStatus = 'gameplay';
+let currentStatus = 'startScreen';
 
 let scenario;
 let lives;
