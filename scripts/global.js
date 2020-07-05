@@ -1,6 +1,7 @@
 let imgStartScreen;
 let imgScenario;
 let imgGameOver;
+let imgLife;
 let fontTitle;
 
 let imgWitch;
@@ -12,17 +13,21 @@ let manager;
 let gameplay;
 let startScreen;
 let status;
-let currentStatus = 'startScreen';
+//let currentStatus = 'startScreen';
+let currentStatus = 'gameplay';
 
 let scenario;
+let lives;
+let score;
+
 let witch;
 let poring;
 let winged;
 let troll;
 
-let score;
 let soundtrack;
 let jumpSound;
+let gameOverSound;
 
 const matrixWitch = [
   [0, 0],

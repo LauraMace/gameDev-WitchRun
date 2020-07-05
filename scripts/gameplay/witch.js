@@ -8,6 +8,7 @@ class Witch extends Animation {
     this.gravidade = 4;
     this.impulseY = -45;
     this.jumps = 0;
+    this.immunity = false;
   }
   
   jump() {
@@ -28,7 +29,18 @@ class Witch extends Animation {
     }
   }
   
+  isImmune() {
+    this.immunity = true;
+    setTimeout(() => {
+      this.immunity = false;
+    }, 1200);
+  }
+  
   collision(enemy) {
+    if(this.immunity) {
+      return false;
+    }
+    
     const margemX = .65;
     const margemY = .64;
     const collide = collideRectRect(
