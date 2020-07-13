@@ -3,6 +3,7 @@ let imgScenario;
 let imgGameOver;
 let imgLife;
 let fontTitle;
+let cartridge;
 
 let imgWitch;
 let imgPoring;
@@ -17,7 +18,6 @@ let startScreen;
 let gameOverScreen;
 let status;
 let currentStatus = 'startScreen';
-//let currentStatus = 'gameplay';
 
 let scenario;
 let lives;

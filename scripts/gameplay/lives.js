@@ -4,7 +4,7 @@ class Lives {
     this.starter = starter;
     this.lives = this.starter;
     this.milestone = 1;
-    this.mark = 75;
+    this.mark = 100;
     
     this.largura = 30;
     this.altura = 30;
@@ -27,8 +27,8 @@ class Lives {
     if(this.points - this.mark > 0){
       if(this.lives < this.maximum) {
         this.lives++;
-        successSound.play();
       }
+      successSound.play();
       this.milestone++;
       this.mark = 75 * this.milestone;
       console.log(this.milestone, this.mark);

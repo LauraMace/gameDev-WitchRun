@@ -1,27 +1,14 @@
 class Gameplay {
   constructor() {
     this.index = 0;
-    this.map = [
-      {
-        enemy:0, speedX:10
-      },
-      {
-        enemy:2, speedX:15
-      },
-      {
-        enemy:2, speedX:36
-      },
-      {
-        enemy:1, speedX:15
-      }
-    ];
+    this.map = cartridge.map;
   }
 
   setup() {
     scenario = new Scenario(imgScenario, 3);
     //soundtrack.loop();
     score = new Score();
-    lives = new Lives(4, 3);
+    lives = new Lives(cartridge.config.maximumLives, cartridge.config.starterLives);
 
     witch = new Witch(matrixWitch, imgWitch, 2, 30, 110, 135, 220, 270);
 
@@ -62,7 +49,8 @@ class Gameplay {
     if(currentVisible){
       this.index++;
       enemy.spawn();
-      enemy.speedX = currentLine.speedX;
+      enemy.speedX = parseInt(random(currentLine.speedX - 2 + lives.milestone, currentLine.speedX + 2 + lives.milestone));
+      console.log(currentLine.speedX - 2 + lives.milestone, currentLine.speedX + 2 + lives.milestone, enemy.speedX);
       
       if(this.index >= this.map.length) {
         this.index = 0;

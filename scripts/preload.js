@@ -1,5 +1,6 @@
 function preload() {
   fontTitle = loadFont('pictures/assets/startScreen.otf');
+  cartridge = loadJSON('fita/fita.json');
   
   imgStartScreen  = loadImage('pictures/assets/startScreen.png');
   imgScenario = loadImage('pictures/scenario/forest.png');
