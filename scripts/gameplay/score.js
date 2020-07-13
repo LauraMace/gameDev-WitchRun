@@ -11,6 +11,6 @@ class Score {
   }
   
   score() {
-      this.points = this.points + 0.2;
+    this.points = this.points + 0.2;
   }
 }
