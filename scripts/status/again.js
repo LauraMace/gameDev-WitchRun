@@ -1,4 +1,4 @@
-class Start {
+class Again {
   constructor(text, x, y) {
     this.text = text;
     this.x = x;
@@ -14,9 +14,10 @@ class Start {
   }
   
   _changeStatus() {
-    gameplay = new Gameplay();
-    gameplay.setup();
     this.button.remove();
+    gameplay.setup();
+    
+    witch = new Witch(matrixWitch, imgWitch, 2, 30, 110, 135, 220, 270);
     currentStatus = 'gameplay';
   }
 }

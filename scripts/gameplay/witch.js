@@ -4,6 +4,8 @@ class Witch extends Animation {
     this.yChao = height - this.altura - this.deltaY;
     this.y = this.yChao;
     
+    this.character = character;
+    this.original = character;
     this.speedY = 0;
     this.gravidade = 4;
     this.impulseY = -45;
@@ -31,9 +33,11 @@ class Witch extends Animation {
   
   isImmune() {
     this.immunity = true;
+    this.character.filter(INVERT);
     setTimeout(() => {
       this.immunity = false;
-    }, 1200);
+      this.character.filter(INVERT);
+    }, 1360);
   }
   
   collision(enemy) {
@@ -41,8 +45,8 @@ class Witch extends Animation {
       return false;
     }
     
-    const margemX = .65;
-    const margemY = .64;
+    const margemX = 0.65;
+    const margemY = 0.64;
     const collide = collideRectRect(
       this.x, 
       this.y, 

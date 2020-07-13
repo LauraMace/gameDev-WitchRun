@@ -1,12 +1,11 @@
 class StartScreen {
   constructor() {
-    
   }
   
   draw() {
     this._bgImage();
     this._title();
-    this._manager();
+    this._startButton();
   }
   
   _bgImage() {
@@ -23,8 +22,8 @@ class StartScreen {
     textSize(120)
     text('Escape', width/2, 3*height/8);
   }
-  _manager() {
-      manager.y = 3.5*height/5;
-      manager.draw();
+  _startButton() {
+      startButton.y = 3.5*height/5;
+      startButton.draw();
   }
 }

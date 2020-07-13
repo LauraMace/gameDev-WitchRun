@@ -3,12 +3,16 @@ function setup() {
   frameRate(36);
   startScreen = new StartScreen();
   gameplay = new Gameplay();
+  gameOverScreen = new GameOver();
   gameplay.setup();
+  
   status = {
     startScreen,
     gameplay,
+    gameOverScreen,
   };
-  manager = new Manager('Start', width/2, height/2);
+  
+  startButton = new Start('Start', width/2, height/2);
 }
 
 function keyPressed() {

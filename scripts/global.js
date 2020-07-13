@@ -9,11 +9,15 @@ let imgPoring;
 let imgWinged;
 let imgTroll;
 
-let manager;
+let startButton;
+let againButton;
+
 let gameplay;
 let startScreen;
+let gameOverScreen;
 let status;
 let currentStatus = 'startScreen';
+//let currentStatus = 'gameplay';
 
 let scenario;
 let lives;
@@ -26,6 +30,8 @@ let troll;
 
 let soundtrack;
 let jumpSound;
+let successSound;
+let collideSound;
 let gameOverSound;
 
 const matrixWitch = [

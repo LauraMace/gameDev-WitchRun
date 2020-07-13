@@ -13,5 +13,7 @@ function preload() {
   
   soundtrack = loadSound('sounds/soundtrack.mp3');
   jumpSound = loadSound('sounds/jump.mp3');
+  successSound = loadSound('sounds/success.mp3');
+  loseLifeSound = loadSound('sounds/loseLife.mp3');
   gameOverSound = loadSound('sounds/gameOver.mp3');
 }
