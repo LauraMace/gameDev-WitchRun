@@ -70,7 +70,7 @@ class Gameplay {
       }
 
       this.index++;
-      if (lives.milestone == 2) {
+      if (lives.milestone == 8) {
         this.index = 0;
       }
       if (this.index >= this.map.length) {

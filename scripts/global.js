@@ -11,25 +11,30 @@ let fontTitle;
 let cartridge;
 
 let imgWitch;
-let imgPoring;
-let imgWinged;
-let imgTroll;
-let imgWolf;
-
+let imgWitchIntro;
 let imgWitchVictory;
+
+let imgWolf;
+let imgWolfIntro;
 let imgWolfVictory;
 let imgWolfDefeat;
 
+let imgPoring;
+let imgWinged;
+let imgTroll;
+
+let introButton;
 let startButton;
 let againButton;
 
-let gameplay;
 let startScreen;
+let introScreen;
+let gameplay;
 let gameOverScreen;
 let theEndScreen
 let status;
 let currentStatus = 'startScreen';
-//let currentStatus = 'gameplay';
+//currentStatus = 'introScreen';
 
 
 let scenario1;
