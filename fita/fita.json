@@ -4,22 +4,31 @@
     "starterLives": 3
   },
   "map": [{
-      "enemy": 0, "speedX": 10
+      "enemy": 0, "speedX": 5
+    },
+    {
+      "enemy": 1, "speedX": 10
+    },
+    {
+      "enemy": 3, "speedX": 15
+    },
+    {
+      "enemy": 3, "speedX": 30
+    },
+    {
+      "enemy": 2, "speedX": 18
+    },
+    {
+      "enemy": 1, "speedX": 15
+    },
+    {
+      "enemy": 2, "speedX": 26
+    },
+    {
+      "enemy": 3, "speedX": 21
     },
     {
       "enemy": 2, "speedX": 15
-    },
-    {
-      "enemy": 2, "speedX": 36
-    },
-    {
-      "enemy": 1, "speedX": 18
-    },
-    {
-      "enemy": 0, "speedX": 15
-    },
-    {
-      "enemy": 1, "speedX": 33
     }
   ]
 }

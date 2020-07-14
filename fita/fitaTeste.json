@@ -1,0 +1,16 @@
+{
+  "config": {
+    "maximumLives": 4,
+    "starterLives": 3
+  },
+  "map": [{
+      "enemy": 1, "speedX": 15
+    },
+    {
+      "enemy": 1, "speedX": 15
+    },
+    {
+      "enemy": 1, "speedX": 15
+    }
+  ]
+}

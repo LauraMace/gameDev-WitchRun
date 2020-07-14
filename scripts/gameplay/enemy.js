@@ -1,7 +1,7 @@
 class Enemy extends Animation {
-  constructor(matrix, sprites, x, deltaY, largura, altura, larguraSprite, alturaSprite, speedX) {
-    super(matrix, sprites, x, deltaY, largura, altura, larguraSprite, alturaSprite)
-  
+  constructor(matrix, spritesheet, x, deltaY, largura, altura, larguraSprite, alturaSprite, speedX) {
+    super(matrix, spritesheet, x, deltaY, largura, altura, larguraSprite, alturaSprite)
+    
     this.speedX = speedX;
     this.x = width;
   }
