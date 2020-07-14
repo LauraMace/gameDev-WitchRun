@@ -4,12 +4,12 @@ class Lives {
     this.starter = starter;
     this.lives = this.starter;
     this.milestone = 1;
-    this.mark = 75;
+    this.mark = 100;
     
-    this.largura = 30;
-    this.altura = 30;
-    this.spacingX = 21;
-    this.y = 21;
+    this.largura = 45;
+    this.altura = 40;
+    this.spacingX = 24;
+    this.y = 24;
   }
   
   draw() {
@@ -19,6 +19,8 @@ class Lives {
       
       image(imgLife, tab + deltaX, this.y, this.largura, this.altura);
     }
+    
+    //this.spritesheet, this.x, this.y, this.largura, this.altura, this.matrix[this.frameAtual][0], this.matrix[this.frameAtual][1], this.larguraSprite, this.alturaSprite
   }
   
   gainLife(points) {
@@ -27,11 +29,11 @@ class Lives {
     if(this.points - this.mark > 0){
       if(this.lives < this.maximum) {
         this.lives++;
-        successSound.play();
       }
+      successSound.play();
       this.milestone++;
-      this.mark = 75 * this.milestone;
-      console.log(this.milestone, this.mark);
+      this.mark = 100 * this.milestone;
+      console.log("milestone",this.milestone, "next mark",this.mark);
     }    
   }
   

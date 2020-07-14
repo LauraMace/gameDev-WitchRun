@@ -1,5 +1,5 @@
 class Scenario {
-  constructor(backdrop, speedX){
+  constructor(backdrop, speedX) {
     this.backdrop = backdrop;
     this.speedX = speedX;
     this.x1 = 0;
@@ -15,10 +15,10 @@ class Scenario {
     this.x1 = this.x1 - this.speedX;
     this.x2 = this.x2 - this.speedX;
     
-    if (this.x1 < -width){
+    if (this.x1 < -width+this.speedX){
       this.x1 = width;
     }
-    if (this.x2 < -width){
+    if (this.x2 < -width+this.speedX){
       this.x2 = width;
     }
   }

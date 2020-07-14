@@ -1,13 +1,24 @@
 let imgStartScreen;
-let imgScenario;
+let imgGround;
+let imgFront;
+let imgMiddle;
+let imgBack;
+let imgSky;
+
 let imgGameOver;
 let imgLife;
 let fontTitle;
+let cartridge;
 
 let imgWitch;
 let imgPoring;
 let imgWinged;
 let imgTroll;
+let imgWolf;
+
+let imgWitchVictory;
+let imgWolfVictory;
+let imgWolfDefeat;
 
 let startButton;
 let againButton;
@@ -15,11 +26,18 @@ let againButton;
 let gameplay;
 let startScreen;
 let gameOverScreen;
+let theEndScreen
 let status;
 let currentStatus = 'startScreen';
 //let currentStatus = 'gameplay';
 
-let scenario;
+
+let scenario1;
+let scenario2;
+let scenario3;
+let scenario4;
+let scenario5;
+
 let lives;
 let score;
 
@@ -27,6 +45,7 @@ let witch;
 let poring;
 let winged;
 let troll;
+let wolf;
 
 let soundtrack;
 let jumpSound;
@@ -128,7 +147,24 @@ const matrixWinged = [
   [0, 600],
   [200, 600],
   [400, 600],
-  [0, 750],
+  [0, 750]
+]
+
+const matrixWolf = [
+  [140, 200],
+  [620, 200],
+  [1100, 200],
+  [1580, 200],
+  [2060, 200],
+  [140, 682],
+  [620, 682],
+  [1100, 682],
+  [1580, 682],
+  [2060, 682],
+  [140, 1164],
+  [620, 1164],
+  [1100, 1164],
+  [1580, 1164],
 ]
 
 const enemies = []

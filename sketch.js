@@ -4,12 +4,15 @@ function setup() {
   startScreen = new StartScreen();
   gameplay = new Gameplay();
   gameOverScreen = new GameOver();
+  theEndScreen = new TheEnd();
+
   gameplay.setup();
   
   status = {
     startScreen,
     gameplay,
     gameOverScreen,
+    theEndScreen
   };
   
   startButton = new Start('Start', width/2, height/2);

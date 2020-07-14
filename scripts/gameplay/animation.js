@@ -1,11 +1,12 @@
 class Animation {
-  constructor(matrix, sprites, x, deltaY, largura, altura, larguraSprite, alturaSprite){
+  constructor(matrix, spritesheet, x, deltaY, largura, altura, larguraSprite, alturaSprite){
     this.matrix = matrix;
-    this.sprites = sprites;
+    this.spritesheet = spritesheet;
     this.largura = largura;
     this.altura = altura;
     this.x = x;
     this.deltaY = deltaY;
+    
     this.y = height - this.altura - this.deltaY;
     this.larguraSprite = larguraSprite;
     this.alturaSprite = alturaSprite;
@@ -14,7 +15,7 @@ class Animation {
   }
   
   show() {
-    image(this.sprites, this.x, this.y, this.largura, this.altura, this.matrix[this.frameAtual][0], this.matrix[this.frameAtual][1], this.larguraSprite, this.alturaSprite);
+    image(this.spritesheet, this.x, this.y, this.largura, this.altura, this.matrix[this.frameAtual][0], this.matrix[this.frameAtual][1], this.larguraSprite, this.alturaSprite);
     
     this.animate();
   }

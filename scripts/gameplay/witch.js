@@ -8,7 +8,7 @@ class Witch extends Animation {
     this.original = character;
     this.speedY = 0;
     this.gravidade = 4;
-    this.impulseY = -45;
+    this.impulseY = -40;
     this.jumps = 0;
     this.immunity = false;
   }
@@ -37,7 +37,7 @@ class Witch extends Animation {
     setTimeout(() => {
       this.immunity = false;
       this.character.filter(INVERT);
-    }, 1360);
+    }, 1250);
   }
   
   collision(enemy) {
