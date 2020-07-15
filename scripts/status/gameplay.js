@@ -11,13 +11,11 @@ class Gameplay {
     scenario4 = new Scenario(imgFront, 2.7);
     scenario5 = new Scenario(imgGround, 3);
 
-    //soundtrack.loop();
     score = new Score();
     lives = new Lives(cartridge.config.maximumLives, cartridge.config.starterLives);
 
-    witch = new Witch(matrixWitch, imgWitch, 18, 42, 110, 135, 220, 270);
-    wolf = new Enemy(matrixWolf, imgWolf, width - 30, 39, 125, 100, 250, 200, 3.2);
-//        constructor(matrix, spritesheet, x, deltaY, largura, altura, larguraSprite, alturaSprite)
+    witch = new Witch(matrixWitch, imgWitch, 24, 42, 110, 135, 220, 270);
+    wolf = new Enemy(matrixWolf, imgWolf, width, 39, 125, 100, 250, 200, 3.2);
     
     poring = new Enemy(matrixPoring, imgPoring, width - 52, 39, 52, 52, 104, 104, 10);
     winged = new Enemy(matrixWinged, imgWinged, width - 60, 200, 100, 75, 200, 150, 18);
@@ -86,6 +84,8 @@ class Gameplay {
     if (witch.collision(enemy)) {
       if (this.index == 0) {
         currentStatus = 'theEndScreen';
+        soundtrack.stop();
+        victorySound.play();
       } 
       else {
         lives.loseLife();
@@ -94,6 +94,8 @@ class Gameplay {
 
         if (lives.lives === 0) {
           currentStatus = 'gameOverScreen';
+          soundtrack.stop();
+          gameOverSound.play();
           enemy.x = -enemy.largura;
           this.index = 1;
           againButton = new Again('Try again', width/2, height/2);

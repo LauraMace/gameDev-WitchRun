@@ -37,6 +37,8 @@ class Start {
   _changeStatus() {
     gameplay = new Gameplay();
     gameplay.setup();
+    soundtrack.loop();
+    soundtrack.setVolume(0.3);
     this.button.remove();
     currentStatus = 'gameplay';
   }
@@ -60,6 +62,9 @@ class Again {
   
   _changeStatus() {
     this.button.remove();
+    gameOverSound.stop();
+    soundtrack.loop();
+    soundtrack.setVolume(0.3);
     gameplay.setup();
     
     witch = new Witch(matrixWitch, imgWitch, 2, 30, 110, 135, 220, 270);

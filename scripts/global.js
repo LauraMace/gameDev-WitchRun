@@ -34,8 +34,6 @@ let gameOverScreen;
 let theEndScreen
 let status;
 let currentStatus = 'startScreen';
-//currentStatus = 'introScreen';
-
 
 let scenario1;
 let scenario2;
@@ -56,6 +54,7 @@ let soundtrack;
 let jumpSound;
 let successSound;
 let collideSound;
+let victorySound;
 let gameOverSound;
 
 const matrixWitch = [

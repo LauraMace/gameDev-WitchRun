@@ -37,7 +37,7 @@ class IntroScreen {
   draw() {
     this._bgImage();
     image(imgWitchIntro, 1.9*width/5 - imgWitchVictory.width, 0.1*height/8);
-    image(imgWolfIntro, 2.8*width/5, 2.65*height/5);
+    image(imgWolfIntro, 3*width/5, 2.75*height/5);
     this._context();
     this._startButton();
   }
@@ -67,7 +67,7 @@ class IntroScreen {
     
   _startButton() {
       startButton.y = 3.85*height/5;
-      startButton.x = 1.1*width/5;
+      startButton.x = 1.35*width/5;
       startButton.draw();
   }
 }
