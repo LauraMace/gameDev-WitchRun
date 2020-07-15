@@ -17,7 +17,7 @@ function setup() {
     theEndScreen
   };
   
-  introButton = new Intro('Start', width/2, height/2);
+  introButton = new Intro('Start', width/2, 3.7*height/5);
 }
 
 function keyPressed() {

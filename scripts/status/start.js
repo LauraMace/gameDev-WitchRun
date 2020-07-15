@@ -1,6 +1,5 @@
 class StartScreen {
   constructor() {
-    startButton = new Start("Let's go", width/2, height/2);
   }
   
   draw() {
@@ -17,27 +16,27 @@ class StartScreen {
     textFont(fontTitle);
     textAlign(CENTER);
 
-    textSize(60)
+    textSize(55)
     text('The Great', width/2, 1.6*height/8);
     
-    textSize(120)
+    textSize(90)
     text('Rescue', width/2, 3*height/8);
   }
   
   _introButton() {
-      introButton.y = 3.5*height/5;
       introButton.draw();
   }
 }
 
 class IntroScreen {
   constructor() {
+    startButton = new Start("Let's go", 1.25*width/5, 3.8*height/5);
   }
   
   draw() {
     this._bgImage();
-    image(imgWitchIntro, 1.9*width/5 - imgWitchVictory.width, 0.1*height/8);
-    image(imgWolfIntro, 3*width/5, 2.75*height/5);
+    image(imgWitchIntro, 1.9*width/5 - imgWitchVictory.width, 0);
+    image(imgWolfIntro, 3*width/5, 2.4*height/5);
     this._context();
     this._startButton();
   }
@@ -50,7 +49,7 @@ class IntroScreen {
     textFont(fontTitle);
     textAlign(CENTER);
 
-    textSize(31)
+    textSize(30)
     fill('black');
     text('The young Wolf Cub', 3.5*width/5, 0.9*height/8)
     text('is lost in the Forest!', 3.5*width/5, 1.35*height/8);
@@ -61,13 +60,11 @@ class IntroScreen {
     
     textSize(27)
     fill('white');
-    text('Use the ArrowUp key to jump and', 1.7*width/5, 3.7*height/6);
-    text('avoid the Creatures of the Forest', 1.7*width/5, 4*height/6);
+    text('Use the ArrowUp key to jump and', 1.7*width/5, 3.8*height/6);
+    text('avoid the Creatures of the Forest', 1.7*width/5, 4.1*height/6);
   }
     
   _startButton() {
-      startButton.y = 3.85*height/5;
-      startButton.x = 1.35*width/5;
       startButton.draw();
   }
 }

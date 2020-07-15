@@ -98,7 +98,7 @@ class Gameplay {
           gameOverSound.play();
           enemy.x = -enemy.largura;
           this.index = 1;
-          againButton = new Again('Try again', width/2, height/2);
+          againButton = new Again('Try again', width/2, 3.7*height/5);
         }
       }
     }
