@@ -63,9 +63,10 @@ class Gameplay {
 
     if (currentVisible) {
       if (enemy.spritesheet == imgWinged) {
-        enemy.y = parseInt(random(420 - 12 * lives.milestone, 420 + 11 * lives.milestone));
-        console.log("min", 420 - 18 * lives.milestone, "max", 420 + 15 * lives.milestone, "y", enemy.y);
-      }
+        enemy.y = parseInt(random(3*height/5 - 12 * lives.milestone, 3*height/5 + 12 * lives.milestone));
+        console.log("minY", 3*height/5 - 12 * lives.milestone, "maxY", 3*height/5 + 12 * lives.milestone, "y", enemy.y);
+      } 
+      else {console.log("y", enemy.y);}
 
       this.index++;
       if (lives.milestone == 8) {
